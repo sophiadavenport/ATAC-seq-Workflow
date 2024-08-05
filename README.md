@@ -1,7 +1,7 @@
 # ATAC-seq-Workflow
 ## Methods
 
-ATAC-seq samples corresponding to the X and Y human samples were downloaded from GEO accession (get later) [1]. FastQC v0.12.1 [2] was used to perform initial quality control on all samples with default parameters. MultiQC v1.21 [3] was performed with default parameters to aggregate the fastQC outputs. Trimming of adapter sequences was done using Trimmomatic v0.32 [4] with a sliding window of 4:15 and removing 3 bases at the start/end if below quality threshold.
+ATAC-seq samples corresponding to the X and Y human samples were downloaded from publicly available data on GEO [1]. FastQC v0.12.1 [2] was used to perform initial quality control on all samples with default parameters. MultiQC v1.21 [3] was performed with default parameters to aggregate the fastQC outputs. Trimming of adapter sequences was done using Trimmomatic v0.32 [4] with a sliding window of 4:15 and removing 3 bases at the start/end if below quality threshold.
 
 Reads were aligned to Gencode's human reference genome release 45 (hg38) [5] using BowTie2-build v2.5.3 with default parameters and BowTie2-align v2.5.3 [6] with a maximum fragment length of 2000. Samtools-view v1.19 [7] was used to remove alignments to the mitochondrial chromosome. The deepTools suite alignmentSieve v [8] was used to shift reads to correct for the Tn5 nick repair bias. Post-alignment quality control analysis was performed using ATACseqQC from the BioConductor package v3.18 [9] with default parameters. 
 
